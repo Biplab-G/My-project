@@ -4,20 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="ToDo.css">
-  <title>ToDo</title>
+  <title>Modern Todo</title>
 </head>
 <body>
- <h1 id="main-heading">ToDo App</h1>
+  <main class="app-shell">
+    <section class="todo-card">
+      <header class="app-header">
+        <h1>Todo Planner</h1>
+        <p>Plan tasks, track progress, stay focused.</p>
+      </header>
 
-  <div class="grid-container">
-    <input id="ToDo-input" type="text" placeholder="Enter ToDo here">
-    <input id="ToDo-date" type="date">
-    <button class='btn-ToDo' onclick="addToDo();">Add</button>
-  </div>
+      <section class="input-grid">
+        <input id="ToDo-input" type="text" placeholder="What do you need to do?" maxlength="80">
+        <input id="ToDo-date" type="date">
+        <button class="btn btn-add" id="add-btn" type="button">Add Task</button>
+      </section>
 
-  <div class="ToDo-container grid-container"></div>
+      <section class="toolbar">
+        <div class="toolbar-left">
+          <input id="search-input" type="search" placeholder="Search task...">
+          <select id="sort-order" aria-label="Sort tasks">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="dueSoon">Due Soon</option>
+          </select>
+        </div>
+        <button class="btn btn-ghost" id="clear-completed" type="button">Clear Completed</button>
+      </section>
 
-  <script src="ToDo.Js">ToDo-js</script>
-  </button>
+      <section class="stats" id="stats">0 total | 0 active | 0 completed</section>
+
+      <section class="table-block">
+        <h2>Todo Planner Table</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Done</th>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="todo-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="table-block completed-block">
+        <h2>Completed Tasks Table</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Undo</th>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="completed-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="ToDo.Js"></script>
 </body>
 </html>
